@@ -1,11 +1,15 @@
 #include "scraper/scraper.h"
 #include "scraper/downloader.h"
+#include "scraper/processor.h"
 
+#include <boost/iostreams/filtering_stream.hpp>
+#include <boost/iostreams/copy.hpp>
+#include <boost/iostreams/filter/gzip.hpp>
 #include <iostream>
 
 void scraper::synchronize(
-      const std::vector<std::string> &cpid_list,
-      const std::vector<std::string> &project_list)
+      const std::set<std::string>& cpid_list,
+      const std::set<std::string>& project_list)
 {
    if(cpid_list.empty())
       throw std::runtime_error("Empty CPID list");
@@ -19,5 +23,6 @@ void scraper::synchronize(
       std::cout << "Download " << url << std::endl;
 
       scraper::http_download(url, "user.gz");
+      scraper::extract_credits("user.gz", cpid_list);
    }
 }

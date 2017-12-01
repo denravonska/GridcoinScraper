@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+#include <set>
 #include <string>
 
 namespace scraper
@@ -19,6 +19,6 @@ namespace scraper
    //! \param project_list List of projects to contact.
    //!
    void synchronize(
-         const std::vector<std::string>& cpid_list,
-         const std::vector<std::string>& project_list);
+         const std::set<std::string>& cpid_list,
+         const std::set<std::string>& project_list);
 }

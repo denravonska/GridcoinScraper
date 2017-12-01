@@ -24,3 +24,7 @@ set(CURL_LIBRARY "-lcurl")
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 target_link_libraries(scraper ${CURL_LIBRARIES})
+
+find_package( Boost 1.40 COMPONENTS iostreams REQUIRED )
+include_directories( ${Boost_INCLUDE_DIR} )
+target_link_libraries(scraper ${Boost_LIBRARIES})
