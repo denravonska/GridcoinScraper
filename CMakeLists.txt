@@ -2,8 +2,11 @@ cmake_minimum_required(VERSION 3.10)
 
 project(scraper)
 
-include_directories("${PROJECT_SOURCE_DIR}/include")
+# Compiler flags
+set (CMAKE_CXX_STANDARD 11)
 
+# Resource files
+include_directories("${PROJECT_SOURCE_DIR}/include")
 file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 file(GLOB SCRAPER_SOURCES "${PROJECT_SOURCE_DIR}/src/scraper/*.cpp")
 file(GLOB SCRAPER_HEADERS "${PROJECT_SOURCE_DIR}/include/scraper/*.h")
@@ -15,3 +18,9 @@ add_executable(scraper
    ${SCRAPER_SOURCES} ${SCRAPER_HEADERS}
    ${MODEL_SOURCES}   ${MODEL_HEADERS}
    README.md)
+
+# Dependencies
+set(CURL_LIBRARY "-lcurl")
+find_package(CURL REQUIRED)
+include_directories(${CURL_INCLUDE_DIR})
+target_link_libraries(scraper ${CURL_LIBRARIES})
