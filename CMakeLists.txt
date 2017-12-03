@@ -20,6 +20,8 @@ add_executable(scraper
    README.md)
 
 # Dependencies
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
+
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 target_link_libraries(scraper ${CURL_LIBRARIES})
@@ -32,3 +34,7 @@ find_package(ZLIB REQUIRED)
 include_directories(${ZLIB_INCLUDE_DIR})
 target_link_libraries(scraper ${ZLIB_LIBRARIES})
 
+set(sqlite3_DIR "${PROJECT_SOURCE_DIR}/cmake")
+find_package(sqlite3 REQUIRED)
+include_directories(${SQLITE3_INCLUDE_DIR})
+target_link_libraries(scraper ${SQLITE3_LIBRARIES})
