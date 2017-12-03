@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.0)
 
 project(scraper)
 
@@ -20,11 +20,15 @@ add_executable(scraper
    README.md)
 
 # Dependencies
-set(CURL_LIBRARY "-lcurl")
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 target_link_libraries(scraper ${CURL_LIBRARIES})
 
 find_package( Boost 1.40 COMPONENTS iostreams REQUIRED )
-include_directories( ${Boost_INCLUDE_DIR} )
+include_directories(${Boost_INCLUDE_DIR})
 target_link_libraries(scraper ${Boost_LIBRARIES})
+
+find_package(ZLIB REQUIRED)
+include_directories(${ZLIB_INCLUDE_DIR})
+target_link_libraries(scraper ${ZLIB_LIBRARIES})
+
