@@ -1,6 +1,7 @@
 #include "scraper/downloader.h"
 
 #include <curl/curl.h>
+#include <stdexcept>
 
 namespace
 {
