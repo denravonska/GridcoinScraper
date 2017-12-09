@@ -1,4 +1,4 @@
-#include "scraper/downloader.h"
+#include "downloader.h"
 
 #include <curl/curl.h>
 #include <stdexcept>

@@ -1,6 +1,6 @@
 #include "scraper/scraper.h"
-#include "scraper/downloader.h"
-#include "scraper/processor.h"
+#include "downloader.h"
+#include "processor.h"
 
 #include <boost/iostreams/filtering_stream.hpp>
 #include <boost/iostreams/copy.hpp>

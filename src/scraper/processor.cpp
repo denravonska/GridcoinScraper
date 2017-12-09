@@ -1,4 +1,4 @@
-#include "scraper/processor.h"
+#include "processor.h"
 #include "model/researcher.h"
 
 #include <boost/property_tree/xml_parser.hpp>
