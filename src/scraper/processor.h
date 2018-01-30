@@ -17,4 +17,5 @@ namespace scraper
    void extract_credits(
          const std::string& file,
          const std::set<std::string>& cpid_list);
+
 }

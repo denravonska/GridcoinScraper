@@ -1,4 +1,5 @@
 #include "processor.h"
+#include "calculator.h"
 #include "model/researcher.h"
 
 #include <boost/property_tree/xml_parser.hpp>
@@ -41,6 +42,11 @@ void scraper::extract_credits(
 
       // Extract credits.
       double total_credit = v.second.get<double>("total_credit");
+      double avg_credit = v.second.get<double>("expavg_credit");
+      double avg_time = v.second.get<double>("expavg_time");
       std::cout << "Credits for " << cpid << " " << std::fixed << total_credit << std::endl;
+      std::cout << "Average Credits for " << cpid << " " << std::fixed << avg_credit << std::endl;
+      double RAC = calc_RAC(avg_credit,avg_time);
+      std::cout << "RAC for " << cpid << " " << std::fixed << RAC << std::endl;
    }
 }
