@@ -20,8 +20,7 @@ void scraper::synchronize(
    for(auto& project_url : project_list)
    {
       std::string url = project_url + "/user.gz";
-      std::cout << "Download " << url << std::endl;
-
+      std::cout << "Get Project " << url << std::endl;
       scraper::http_download(url, "user.gz");
       scraper::extract_credits("user.gz", cpid_list);
    }
