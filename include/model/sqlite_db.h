@@ -35,7 +35,7 @@ namespace model
       //! be created.
       //! \throws std::runtime_error on database open or creation failure.
       //!
-      SqliteDb(const std::string& filename);
+      SqliteDb(const std::string& filename, const std::string& tablename);
       void ExecuteQuery(std::string sqlquery,std::string dbname);
 
       //!

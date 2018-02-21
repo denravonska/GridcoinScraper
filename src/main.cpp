@@ -13,6 +13,7 @@ int main(int argc, char* argv[])
    std::set<std::string> project_list =
    {
      "http://srbase.my-firewall.org/sr5/stats",
+     "https://csgrid.org/csg/stats/"
    };
 
    scraper::synchronize(cpid_list, project_list);

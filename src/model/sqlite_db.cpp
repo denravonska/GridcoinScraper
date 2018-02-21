@@ -1,17 +1,21 @@
-#include "sqlite_db.h"
+#include "model/sqlite_db.h"
 
 #include <stdexcept>
+#include <iostream>
 
 using namespace model;
 
-SqliteDb::SqliteDb(const std::string& filename)
+SqliteDb::SqliteDb(const std::string& filename, const std::string& tablename)
 {
    rc = sqlite3_open(filename.c_str(), &db);
    if(rc)
       throw std::runtime_error("Error opening " + filename);
 
    if(rc | SQLITE_OPEN_CREATE)
-      ExecuteQuery("CREATE TABLE RESEARCHER",filename);
+   {
+      std::cout << "Whatever table" + tablename;
+      ExecuteQuery("CREATE TABLE " + tablename, filename);
+   }
 }
 
 void SqliteDb::ExecuteQuery(std::string sqlquery, std::string dbname)

@@ -8,6 +8,7 @@
 #include <boost/iostreams/copy.hpp>
 #include <boost/iostreams/filter/gzip.hpp>
 
+#include <ctime>
 #include <iostream>
 
 void scraper::extract_credits(
@@ -49,4 +50,6 @@ void scraper::extract_credits(
       double RAC = calc_RAC(avg_credit,avg_time);
       std::cout << "RAC for " << cpid << " " << std::fixed << RAC << std::endl;
    }
+   model::Researcher data;
+   data.AddResearcher();
 }
